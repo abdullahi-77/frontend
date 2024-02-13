@@ -50,7 +50,7 @@ const Register = () => {
 
      try {
 
-        const {response} = await axios.post('/api/user/create-user',formData);
+        const {response} = await axios.post('https://murabbimentor.onrender.com/api/user/create-user',formData);
        // toast.success("succesfully registered");
        console.log(response);
         navigate('/login');

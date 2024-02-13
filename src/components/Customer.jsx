@@ -44,7 +44,7 @@ const handleSubmit = async (event) => {
 
  try {
 
-    const response = await axios.post('/api/customer/create-customer',formData);
+    const response = await axios.post('https://murabbimentor.onrender.com/api/customer/create-customer',formData);
 
     toast.success('Mahadsanid Waad Is Diwangelisay');
     navigate('/viewConsultant');

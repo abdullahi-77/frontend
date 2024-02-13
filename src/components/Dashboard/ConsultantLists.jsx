@@ -13,25 +13,25 @@ const ConsultantLists = () => {
 
             const readConsultants = async () => {
             setLoading(true);
-            
+
             try {
-                const {data} =  await axios.get('/api/consultant/get-consultants');
+                const {data} =  await axios.get('https://murabbimentor.onrender.com/api/consultant/get-consultants');
                setconsultants(data);
                 setLoading(false);
-                console.log(data);  
-                
+                console.log(data);
+
             } catch (error) {
                 console.log(error.message);
                 setLoading(false);
             }
             }
-          
+
         readConsultants();
-    
+
         }, []);
 
 
-        
+
   const handleDelete = async (id) => {
 
     if(!confirm("are you sure to delete this")) return;
@@ -54,7 +54,7 @@ const ConsultantLists = () => {
     }
 
   }
-    
+
 
 
   return (
@@ -64,7 +64,7 @@ const ConsultantLists = () => {
     {console.log(consultants)}
 
     { consultants?.map(consultant => (
-        <ConsultantList 
+        <ConsultantList
         key={consultant.id}
         consultant = {consultant}
         handleDelete = {handleDelete}

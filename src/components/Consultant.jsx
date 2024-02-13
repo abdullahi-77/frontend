@@ -68,7 +68,7 @@ if(image){
 
  try {
 
-  let response = await axios.post('/api/consultant/create-consultant', formData, {
+  let response = await axios.post('https://murabbimentor.onrender.com/api/consultant/create-consultant', formData, {
     headers: {'Content-Type': 'multipart/form-data'}
   });
 

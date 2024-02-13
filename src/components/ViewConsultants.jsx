@@ -11,21 +11,21 @@ const ViewConsultants = () => {
 
             const readConsultants = async () => {
             setLoading(true);
-            
+
             try {
-                const {data} =  await axios.get('/api/consultant/get-consultants');
+                const {data} =  await axios.get('https://murabbimentor.onrender.com/api/consultant/get-consultants');
                setconsultants(data);
                 setLoading(false);
-                console.log(data);  
-                
+                console.log(data);
+
             } catch (error) {
                 console.log(error.message);
                 setLoading(false);
             }
             }
-          
+
         readConsultants();
-    
+
         }, []);
 
 
@@ -33,12 +33,12 @@ const ViewConsultants = () => {
     <div >
           <h1 className='font-bold text-center mt-2'>Dooro Talabixiye</h1>
         <div className='flex flex-col lg:flex-row md:flex-row  justify-center items-center lg:justify-start '>
-      
+
     { loading && <h1>loading...</h1>}
     {console.log(consultants)}
 
     { consultants?.map(consultant => (
-        <ViewConsultant 
+        <ViewConsultant
         key={consultant.id}
         consultant = {consultant}
         />
