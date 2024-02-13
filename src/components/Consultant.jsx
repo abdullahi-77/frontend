@@ -12,10 +12,10 @@ import {
   } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { Button } from "@/components/ui/Button"
 import { Textarea } from "@/components/ui/textarea"
 import {toast} from 'react-hot-toast'
 import { useNavigate } from 'react-router-dom'
+import { Button } from './ui/button'
 
 const Consultant = () => {
 
@@ -43,10 +43,10 @@ const Consultant = () => {
     }
   };
 
-  
+
 
   const navigate = useNavigate();
- 
+
 
 const handleSubmit = async (event) => {
   event.preventDefault();
@@ -67,7 +67,7 @@ if(image){
 
 
  try {
-  
+
   let response = await axios.post('/api/consultant/create-consultant', formData, {
     headers: {'Content-Type': 'multipart/form-data'}
   });
@@ -75,14 +75,14 @@ if(image){
   console.log(response);
 
   toast.success('created successfully');
-  
+
   setLoading(false);
  // setTitle('');
  // setContent('');
  // setPreview('');
   //setImage(null);
 
-  
+
  } catch (error) {
     toast.error(error.response.data.message);
     setLoading(false);
@@ -145,7 +145,7 @@ if(image){
         </form>
       </CardContent>
       <CardFooter className="flex justify-between">
-      
+
       </CardFooter>
     </Card>
 

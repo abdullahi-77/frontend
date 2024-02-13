@@ -11,11 +11,11 @@ import {
   } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { Button } from "@/components/ui/Button"
 import {toast} from 'react-hot-toast'
 
 import { useNavigate } from 'react-router-dom'
 import { useUser } from '@/hooks/useUser'
+import { Button } from './ui/button'
 
 const Register = () => {
 
@@ -49,19 +49,19 @@ const Register = () => {
       setLoading(true);
 
      try {
-      
+
         const {response} = await axios.post('/api/user/create-user',formData);
        // toast.success("succesfully registered");
        console.log(response);
         navigate('/login');
         setLoading(false)
 
-      
+
      } catch (error) {
         toast.error(error.response.data.error);
         setLoading(false);
         console.log(error.response);
- 
+
      }
     }
 
@@ -96,12 +96,12 @@ const Register = () => {
         </form>
       </CardContent>
       <CardFooter className="flex justify-between">
-      
+
       </CardFooter>
     </Card>
 
   </div>
-  
+
   )
 }
 

@@ -12,12 +12,12 @@ import {
   } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { Button } from "@/components/ui/Button"
 import {toast} from 'react-hot-toast'
 import { useNavigate } from 'react-router-dom'
 
 
 import videoSource from '../assets/videos/v1.mp4'
+import { Button } from './ui/button'
 
 const Customer = () => {
 
@@ -43,15 +43,15 @@ const handleSubmit = async (event) => {
   setLoading(true);
 
  try {
-  
+
     const response = await axios.post('/api/customer/create-customer',formData);
 
     toast.success('Mahadsanid Waad Is Diwangelisay');
     navigate('/viewConsultant');
-        
+
     setLoading(false)
 
-  
+
  } catch (error) {
     toast.error(error.message);
     setLoading(false);
@@ -71,15 +71,15 @@ const videoRef = useRef(null);
     }
   };
 
-  
 
 
 
-  
+
+
   return (
     <div className="container flex flex-col lg:flex-row items-center md:flex-col gap-5  my-10 ">
       <div className='w-[350px] lg:w-[900px] md:w-[600px]'>
-  
+
 
       <Card className=" lg:w-[600px] md:w-[600px] w-[350px]">
       <CardHeader>
@@ -87,7 +87,7 @@ const videoRef = useRef(null);
         <CardDescription>Video ga daawo.</CardDescription>
       </CardHeader>
       <CardContent>
-       
+
       <video ref={videoRef} className='w-[1000px] border-solid border-2 border-[#1E3F78]' controls>
         <source src={videoSource} type="video/mp4" />
         Your browser does not support the video tag.
@@ -98,7 +98,7 @@ const videoRef = useRef(null);
       <CardFooter className="flex justify-between">
       </CardFooter>
     </Card>
-   
+
 
     </div>
 
@@ -134,7 +134,7 @@ const videoRef = useRef(null);
         </form>
       </CardContent>
       <CardFooter className="flex justify-between">
-      
+
       </CardFooter>
     </Card>
 </div>

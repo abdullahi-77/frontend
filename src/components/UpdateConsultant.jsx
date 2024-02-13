@@ -12,10 +12,10 @@ import {
   } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { Button } from "@/components/ui/Button"
 import {toast} from 'react-hot-toast'
 import { useNavigate, useParams } from 'react-router-dom'
 import { Textarea } from "@/components/ui/textarea"
+import { Button } from './ui/button'
 
 const UpdateConsultant = () => {
 
@@ -35,14 +35,14 @@ const UpdateConsultant = () => {
   const [workExperience, setWorkExperience] = useState(null);
   const [preview, setPreview] = useState('');
   const [loading, setLoading] = useState(false);
-  
 
-   
+
+
   useEffect(() => {
 
     const readConsultants = async () => {
     setLoading(true);
-    
+
     try {
         const {data} =  await axios.get(`/api/consultant/get-consultant/${id}`);
         setconsultants(data);
@@ -58,14 +58,14 @@ setTitle(data.title);
 setExperience(data.experience);
 setWorkExperience(data.workExperience);
 
-    
-        
+
+
     } catch (error) {
         console.log(error.message);
         setLoading(false);
     }
     }
-  
+
 readConsultants();
 
 }, []);
@@ -104,7 +104,7 @@ if(image){
 }
 
 try {
-  
+
   let response = await axios.post(`/api/consultant/update-consultant/${id}`, formData, {
     headers: {'Content-Type': 'multipart/form-data'}
   });
@@ -113,7 +113,7 @@ try {
 
   toast.success('Updated successfully');
   navigate('/dashboard');
-  
+
   setLoading(false);
  // setTitle('');
  // setContent('');
@@ -182,7 +182,7 @@ try {
         </form>
       </CardContent>
       <CardFooter className="flex justify-between">
-      
+
       </CardFooter>
     </Card>
 
